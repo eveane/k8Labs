@@ -1,0 +1,1 @@
+/home/ubuntu/nodes.sh
