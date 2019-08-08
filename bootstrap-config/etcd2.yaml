@@ -1,0 +1,17 @@
+apiVersion: "kubeadm.k8s.io/v1beta1"
+kind: ClusterConfiguration
+kubernetesVersion: 1.14.5
+etcd:
+    local:
+        serverCertSANs:
+        - "172.20.11.210"
+        peerCertSANs:
+        - "172.20.11.210"
+        extraArgs:
+            initial-cluster: cork-etcd-1=https://172.20.11.209:2380,cork-etcd-2=https://172.20.11.210:2380,cork-etcd-3=https://172.20.11.206:2380
+            initial-cluster-state: new
+            name: cork-etcd-2
+            listen-peer-urls: https://172.20.11.210:2380
+            listen-client-urls: https://172.20.11.210:2379
+            advertise-client-urls: https://172.20.11.210:2379
+            initial-advertise-peer-urls: https://172.20.11.210:2380
